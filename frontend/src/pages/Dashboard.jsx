@@ -15,7 +15,7 @@ export default function Dashboard() {
   // Fetch tasks
   const fetchTasks = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/tasks", {
+      const res = await axios.get("https://to-do-v1l1.onrender.com/api/tasks", {
         headers: { Authorization: token }
       });
       setTasks(res.data);
@@ -50,14 +50,14 @@ export default function Dashboard() {
     try {
       if (editId) {
         await axios.put(
-          `http://localhost:5000/api/tasks/${editId}`,
+          `https://to-do-v1l1.onrender.com/api/tasks/${editId}`,
           taskData,
           { headers: { Authorization: token } }
         );
         setEditId(null);
       } else {
         await axios.post(
-          "http://localhost:5000/api/tasks",
+          "https://to-do-v1l1.onrender.com/api/tasks",
           taskData,
           { headers: { Authorization: token } }
         );
@@ -75,7 +75,7 @@ export default function Dashboard() {
   // Delete
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${id}`, {
+      await axios.delete(`https://to-do-v1l1.onrender.com/api/tasks/${id}`, {
         headers: { Authorization: token }
       });
       fetchTasks();

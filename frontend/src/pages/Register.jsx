@@ -18,30 +18,30 @@ export default function Register() {
 
   const handleSubmit = async () => {
     if (!form.name.trim()) {
-      alert("⚠️ Name is required");
+      alert("Name is required");
       return;
     }
 
     if (!isValidEmail(form.email)) {
-      alert("⚠️ Enter a valid email (example: user@gmail.com)");
+      alert(" Enter a valid email (example: user@gmail.com)");
       return;
     }
 
     if (form.password.length < 6) {
-      alert("⚠️ Password must be at least 6 characters");
+      alert(" Password must be at least 6 characters");
       return;
     }
 
     try {
       setIsSubmitting(true);
 
-      await axios.post("http://localhost:5000/api/auth/register", {
+      await axios.post("https://to-do-v1l1.onrender.com/api/auth/register", {
         name: form.name.trim(),
         email: form.email.trim(),
         password: form.password
       });
 
-      alert("✅ Registration successful! Please login.");
+      alert(" Registration successful! Please login.");
       navigate("/login");
 
     } catch (err) {
@@ -56,9 +56,9 @@ export default function Register() {
       }
 
       if (message.toLowerCase().includes("exist")) {
-        alert("⚠️ User already exists. Try logging in.");
+        alert(" User already exists. Try logging in.");
       } else {
-        alert("❌ " + message);
+        alert("" + message);
       }
 
     } finally {

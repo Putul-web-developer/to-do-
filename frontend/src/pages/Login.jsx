@@ -8,7 +8,7 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  // 🚀 Redirect if already logged in
+  //  Redirect if already logged in
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -23,12 +23,12 @@ export default function Login() {
 
   const handleSubmit = async () => {
     if (!isValidEmail(form.email)) {
-      alert("⚠️ Enter a valid email");
+      alert(" Enter a valid email");
       return;
     }
 
     if (!form.password) {
-      alert("⚠️ Password is required");
+      alert(" Password is required");
       return;
     }
 
@@ -36,7 +36,7 @@ export default function Login() {
       setIsSubmitting(true);
 
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://to-do-v1l1.onrender.com/api/auth/login",
         {
           email: form.email.trim(),
           password: form.password
@@ -45,7 +45,7 @@ export default function Login() {
 
       localStorage.setItem("token", res.data.token);
 
-      alert("✅ Login successful!");
+      alert(" Login successful!");
       navigate("/dashboard");
 
     } catch (err) {
@@ -60,9 +60,9 @@ export default function Login() {
       }
 
       if (message.toLowerCase().includes("invalid")) {
-        alert("❌ Invalid email or password");
+        alert(" Invalid email or password");
       } else {
-        alert("❌ " + message);
+        alert(" " + message);
       }
 
     } finally {

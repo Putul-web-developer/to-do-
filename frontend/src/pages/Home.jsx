@@ -39,8 +39,8 @@ export default function Home() {
           {/* Features */}
           <div className="mt-10 space-y-3 text-gray-400">
             <p>✔ Create and manage tasks easily</p>
+            <p>✔ Add heading / Title </p>
             <p>✔ Add description & timestamps</p>
-            <p>✔ Mark important tasks</p>
             <p>✔ Clean and modern dashboard UI</p>
           </div>
         </div>
